@@ -61,7 +61,7 @@ class UploadVideo():
     youtube = self._get_authenticated_service(args)
 
     try:
-      _initialize_upload(youtube, args)
+      self._initialize_upload(youtube, args)
     except HttpError, e:
       print "An HTTP error %d occurred:\n%s" % (e.resp.status, e.content)
 
@@ -117,7 +117,7 @@ class UploadVideo():
       media_body=MediaFileUpload(options.file, chunksize=-1, resumable=True)
     )
 
-    _resumable_upload(insert_request)
+    self._resumable_upload(insert_request)
 
 
   # This method implements an exponential backoff strategy to resume a failed upload.
