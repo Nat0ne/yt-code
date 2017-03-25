@@ -1,9 +1,35 @@
-t1 = 1
-t2 = 2
+import re
 
-sum = t1+t2
+from os import listdir
+from upload_video import UploadVideo
 
-print "ola"
 
-print "%d" % sum
+VIDEOS_FOLDER = "/home/antonio/Youtube/api-samples"
+
+
+videos_list = listdir(VIDEOS_FOLDER)
+
+
+video = {'title': '', 'description': '', 'season': 0, 'episode': 0, 'keywords': '', 'category': 22}
+
+
+video['description'] = "Breaking.Bad.s2Ep4.mkv"
+
+# Change dots to spaces
+video['title'] = video['description'][:-4].replace('.',' ') + video['description'][-4:]
+
+# Find season
+video['season'] = re.search('(?<=s|S)\d{1,2}', video['title']).group(0)
+video['season'] = int(video['season']) + 100
+video['season'] = str(video['season'])[1:3]
+
+# Find episode
+video['episode'] = re.search('(?<=e|E|p|P)\d{1,2}', video['title']).group(0)
+video['episode'] = int(video['episode']) + 100
+video['episode'] = str(video['episode'])[1:3]
+
+
+upload_video1 = UploadVideo()
+
+upload_video1.upload_video_to_youtube(video)
 
