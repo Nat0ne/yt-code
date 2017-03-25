@@ -71,7 +71,7 @@ class UploadVideo():
                      auth_host_port = [8080, 8090], 
                      category = video['category'], 
                      description = video['description'], 
-                     file = video['description'],
+                     file = video['file'],
                      keywords = video['keywords'], 
                      logging_level = 'ERROR',
                      noauth_local_webserver = False, 

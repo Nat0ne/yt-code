@@ -4,16 +4,17 @@ from os import listdir
 from upload_video import UploadVideo
 
 
-VIDEOS_FOLDER = "/home/antonio/Youtube/api-samples"
+VIDEOS_FOLDER = "~/Youtube/Outbox/"
 
 
 videos_list = listdir(VIDEOS_FOLDER)
 
 
-video = {'title': '', 'description': '', 'season': 0, 'episode': 0, 'keywords': '', 'category': 22}
+video = {'file': 'title': '', 'description': '', 'season': 0, 'episode': 0, 'keywords': '', 'category': 22}
 
 
 video['description'] = "Breaking.Bad.s2Ep4.mkv"
+video['file'] = VIDEOS_FOLDER + video['description']
 
 # Change dots to spaces
 video['title'] = video['description'][:-4].replace('.',' ') + video['description'][-4:]
