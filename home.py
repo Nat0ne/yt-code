@@ -36,8 +36,12 @@ for i in range(0, len(videos_list)):
     video['title'] = re.search('([\w\s,-]+)\s(s|S)\d{1,2}', video['title']).group(1)
     video['title'] = video['title'] + " S" + video_season + "E" + video_episode
 
+    print "Series"
+
   else: # it is a movie
-    print "It is a movie"
+    print "Movie"
   
+  print "%s\n" % video
+
   upload_video1 = UploadVideo()
   upload_video1.upload_video_to_youtube(video)
