@@ -4,7 +4,7 @@ from os import listdir
 from upload_video import UploadVideo
 
 
-VIDEOS_FOLDER = "/home/pi/Youtube/Outbox/"
+VIDEOS_FOLDER = "/media/pi/Windows8_OS/TRANSACTIONS/torrent_complete/"
 
 
 videos_list = sorted(listdir(VIDEOS_FOLDER))
